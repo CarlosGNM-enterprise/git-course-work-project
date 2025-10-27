@@ -12,7 +12,7 @@ The program allows users to filter data by city, month, and day of the week, and
 ### Installation and Setup
 1. Clone your forked repository 
     ```bash
-    git clone https://github.com/CarlosGNM-enterprise/git-course-work-project
+    git clone https://github.com/<your-username>/git-course-work-project
     ```
 2. Navigate into the project directory
     ```bash
@@ -48,7 +48,7 @@ python bikeshare.py
 ### Troubleshooting
 - Ensure that all `.csv` files are in the same directory as `bikeshare.py`.
 - If you select “washington,” note that Gender and Birth Year data are not available.
-- Input values (city, month, day) must be lowercase (e.g., chicago, not Chicago).
+- Input values (city, month, day) are case-insensitive (e.g., "Chicago" or "chicago" are both accepted).
 
 ## Contribution guidelines
 
@@ -64,7 +64,7 @@ To contribute:
 3. Follow Udacity’s Commit Message Style Guide.
 
     Example:
-    ```sql
+    ```text
     feat: Add month filter functionality
     ```
 
