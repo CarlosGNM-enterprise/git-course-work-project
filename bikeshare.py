@@ -85,13 +85,13 @@ def time_stats(df):
     start_time = time.time()
 
     # display the most common month
-
+    print("Most Common Month:", df['month'].mode()[0].title())
 
     # display the most common day of week
-
+    print("Most Common Day of Week:", df['day_of_week'].mode()[0].title())
 
     # display the most common start hour
-
+    print("Most Common Start Hour:", df['start_hour'].mode()[0])
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -104,13 +104,14 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
-
+    print("Most Common Start Station:", df['Start Station'].mode()[0])
 
     # display most commonly used end station
-
+    print("Most Common End Station:", df['End Station'].mode()[0])
 
     # display most frequent combination of start station and end station trip
-
+    df['trip'] = df['Start Station'] + " -> " + df['End Station']
+    print("Most Frequent Trip:", df['trip'].mode()[0])
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -123,10 +124,10 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # display total travel time
-
+    print("Total Travel Time (seconds):", df['Trip Duration'].sum())
 
     # display mean travel time
-
+    print("Mean Travel Time (seconds):", df['Trip Duration'].mean())
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -139,13 +140,18 @@ def user_stats(df):
     start_time = time.time()
 
     # Display counts of user types
-
+    print("User Types:\n", df['User Type'].value_counts())
 
     # Display counts of gender
+    if 'Gender' in df.columns:
+        print("\nGender Counts:\n", df['Gender'].value_counts())
 
 
     # Display earliest, most recent, and most common year of birth
-
+    if 'Birth Year' in df.columns:
+        print("\nEarliest Birth Year:", int(df['Birth Year'].min()))
+        print("Most Recent Birth Year:", int(df['Birth Year'].max()))
+        print("Most Common Birth Year:", int(df['Birth Year'].mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
